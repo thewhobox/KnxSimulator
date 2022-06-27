@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>KnxSimulator.Plugins.Default</AssemblyName>
+    <RootNamespace>KnxSimulator.Plugins.Default</RootNamespace>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\KnxSimulator.Plugins\KnxSimulator.Plugins.csproj" />
+    <ProjectReference Include="..\..\Kaenx.Konnect\Kaenx.Konnect\Kaenx.Konnect.csproj" />
+  </ItemGroup>
+</Project>

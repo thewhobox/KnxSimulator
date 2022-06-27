@@ -1,0 +1,71 @@
+﻿<Window x:Class="KnxSimulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        xmlns:src="clr-namespace:KnxSimulator.Plugins;assembly=KnxSimulator.Plugins"
+        x:Name="ViewControl"
+        Title="Kaenx Creator" Height="700" Width="1300">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="ListCatalog">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text="{Binding Description}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TreeView x:Name="TreeLines" Grid.Column="1">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type src:LineMain}" ItemsSource="{Binding Lines}">
+                    <TextBlock>
+                        <TextBlock.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Linie hinzufügen" Click="ClickAddLine" />
+                            </ContextMenu>
+                        </TextBlock.ContextMenu>
+                        <Run Text="Linie " />
+                        <Run Text="{Binding Number}" />
+                    </TextBlock>
+                </HierarchicalDataTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type src:LineMiddle}" ItemsSource="{Binding Devices}">
+                    <TextBlock>
+                        <TextBlock.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Linie hinzufügen" Click="ClickAddDevice" />
+                            </ContextMenu>
+                        </TextBlock.ContextMenu>
+                        <Run Text="Linie " />
+                        <Run Text="{Binding Parent.Number}" />
+                        <Run Text="." />
+                        <Run Text="{Binding Number}" />
+                    </TextBlock>
+                </HierarchicalDataTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type src:IDevice}">
+                    <TextBlock>
+                        <Run Text="Gerät " />
+                        <Run Text="{Binding Parent.Parent.Number}" />
+                        <Run Text="." />
+                        <Run Text="{Binding Parent.Number}" />
+                        <Run Text="." />
+                        <Run Text="{Binding Number}" />
+                        <Run Text="|" />
+                        <Run Text="{Binding Name}" />
+                    </TextBlock>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </Grid>
+</Window>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <!--<ApplicationIcon>FileLogo.ico</ApplicationIcon>-->
+    <Version>1.0.0.0</Version>
+  </PropertyGroup>
+
+
+
+  
+  <ItemGroup>
+    <ProjectReference Include="..\KnxSimulator.Plugins\KnxSimulator.Plugins.csproj" />
+    <ProjectReference Include="..\KnxSimulator.Plugins.Default\KnxSimulator.Plugins.Default.csproj" />
+    <ProjectReference Include="..\..\Kaenx.Konnect\Kaenx.Konnect\Kaenx.Konnect.csproj" />
+  </ItemGroup>
+
+</Project>
