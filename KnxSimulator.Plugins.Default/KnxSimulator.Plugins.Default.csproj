@@ -9,6 +9,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KnxSimulator.Plugins\KnxSimulator.Plugins.csproj" />
-    <ProjectReference Include="..\..\Kaenx.Konnect\Kaenx.Konnect\Kaenx.Konnect.csproj" />
   </ItemGroup>
 </Project>

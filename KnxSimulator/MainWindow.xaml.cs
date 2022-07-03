@@ -52,6 +52,10 @@ namespace KnxSimulator
             TreeLines.ItemsSource = Lines;
 
             Lines.Add(new LineMain() { Number = 1 });
+
+            Lines[0].Lines.Add(new LineMiddle() { Number = 1, Parent = Lines[0] });
+            Lines[0].Lines[0].Devices.Add(new Plugins.Default.Interface() { Parent = Lines[0].Lines[0] });
+            Lines[0].Lines[0].Devices[0].Start(new byte[0]);
         }
 
 
